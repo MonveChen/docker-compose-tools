@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+
+  openvpnclient:
+    image: monve/openvpnclient:latest
+    container_name: openvpnclient
+    privileged: true
+    volumes:
+      - ~/.data/openvpnclient/vpn:/root/vpn
