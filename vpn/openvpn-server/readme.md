@@ -15,3 +15,4 @@ docker-compose run --rm  openvpn easyrsa build-client-full <account-name>
 ```bash
 docker-compose run --rm openvpn ovpn_getclient <account-name> > <account-name>.ovpn
 ```
+
