@@ -1,0 +1,2 @@
+0 1 */1 * * certbot renew --manual --preferred-challenges dns --deploy-hook "nginx -s reload" --manual-auth-hook "sh /root/certbot-letencrypt-wildcardcertificates-alydns/au.sh python aly add" --manual-cleanup-hook "sh /root/certbot-letencrypt-wildcardcertificates-alydns-au/au.sh python aly clean" >> /var/log/nginx/letencrypt-auto-renew.log 2>&1 &
+
