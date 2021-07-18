@@ -1,8 +1,8 @@
-version: '3'
+version: '3.4'
 
 # docker network create nginx_bridge
 networks:
-  nginx_bridge:
+  net_bridge:
     driver: bridge
 
 services:
@@ -25,4 +25,4 @@ services:
       - ~/.data/nginx/config:/root/config
       - ~/.data/nginx/letsencrypt:/etc/letsencrypt
     networks:
-      - nginx_bridge
+      - net_bridge
