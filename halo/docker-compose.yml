@@ -1,0 +1,17 @@
+version: '3.4'
+
+networks:
+  nginx_net_bridge:
+    external: true
+
+services:
+  halo:
+    image: 'halohub/halo:1.4.8'
+    container_name: halo
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ~/.data/halo/.halo:/root/.halo
+    networks:
+      - nginx_net_bridge
