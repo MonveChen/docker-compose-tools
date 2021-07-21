@@ -7,3 +7,4 @@ services:
     privileged: true
     volumes:
       - ~/.data/openvpnclient/vpn:/root/vpn
+    network_mode: "host"
