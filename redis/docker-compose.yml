@@ -1,0 +1,17 @@
+version: '3.7'
+
+networks:
+  net_bridge:
+    driver: bridge
+
+services:
+  redis:
+    image: redis:6.2.5-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes: 
+      - ~/.data/redis/data:/data
+    networks:
+      - net_bridge
