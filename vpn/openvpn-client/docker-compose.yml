@@ -1,10 +1,10 @@
 version: '3.7'
 services:
 
-  openvpnclient:
+  openvpn-client:
     image: monve/openvpnclient:latest
-    container_name: openvpnclient
+    container_name: openvpn-client
     privileged: true
     volumes:
-      - ~/.data/openvpnclient/vpn:/root/vpn
+      - ~/.data/openvpn-client/vpn:/root/vpn
     network_mode: "host"

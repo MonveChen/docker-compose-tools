@@ -1,11 +1,11 @@
 version: '3.7'
 services:
 
-  openvpn:
+  openvpn-server:
     image: kylemanna/openvpn:2.4
-    container_name: openvpn
+    container_name: openvpn-server
     volumes:
-      - ~/.data/openvpn/data:/etc/openvpn
+      - ~/.data/openvpn-server/data:/etc/openvpn
     ports:
       - 1194:1194/udp
     cap_add:
