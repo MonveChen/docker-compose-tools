@@ -1,5 +1,9 @@
 version: '3.7'
 
+networks:
+  net_bridge:
+    driver: bridge
+
 services:
   mongo:
     image: mongo:5.0.2
@@ -15,3 +19,5 @@ services:
       - ~/.data/mongo/data/db:/data/db
       - ~/.data/mongo/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
     command: mongod
+    networks:
+      - net_bridge
