@@ -8,3 +8,6 @@ services:
     volumes:
       - ~/.data/openvpn-client/vpn:/root/vpn
     network_mode: "host"
+    logging: 
+      options:
+        max-size: "100M"

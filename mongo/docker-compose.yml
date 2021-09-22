@@ -21,3 +21,6 @@ services:
     command: mongod
     networks:
       - net_bridge
+    logging: 
+      options:
+        max-size: "100M"

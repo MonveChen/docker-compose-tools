@@ -18,6 +18,9 @@ services:
       - LDAP_TLS_CRT_FILENAME=server.crt
       - LDAP_TLS_KEY_FILENAME=server.key
       - LDAP_TLS_CA_CRT_FILENAME=dibiaozuitu.com.ca.crt
+    logging: 
+      options:
+        max-size: "100M"
   
   phpldapadmin:
     image: osixia/phpldapadmin:stable
@@ -30,3 +33,6 @@ services:
       - PHPLDAPADMIN_HTTPS=false
     depends_on:
       - openldap
+    logging: 
+      options:
+        max-size: "100M"

@@ -15,3 +15,6 @@ services:
       - ~/.data/halo/.halo:/root/.halo
     networks:
       - nginx_net_bridge
+    logging: 
+      options:
+        max-size: "100M"

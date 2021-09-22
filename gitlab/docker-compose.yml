@@ -94,3 +94,6 @@ services:
       - '~/.data/gitlab/data:/var/opt/gitlab'
     networks:
       - nginx_net_bridge
+    logging: 
+      options:
+        max-size: "100M"

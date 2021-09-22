@@ -26,3 +26,6 @@ services:
       - ~/.data/nginx/letsencrypt:/etc/letsencrypt
     networks:
       - net_bridge
+    logging: 
+      options:
+        max-size: "100M"

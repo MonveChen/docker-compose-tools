@@ -15,3 +15,6 @@ services:
       - ~/.data/redis/data:/data
     networks:
       - net_bridge
+    logging: 
+      options:
+        max-size: "100M"
