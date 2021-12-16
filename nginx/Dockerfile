@@ -4,6 +4,10 @@ WORKDIR /root
 
 LABEL maintainer="164598724@qq.com"
 
+USER root
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 RUN apk update \
 	&& apk add --no-cache certbot \
 	&& apk add --no-cache git
