@@ -25,9 +25,9 @@ services:
   mqbroker:
     image: foxiswho/rocketmq:4.7.0
     container_name: mqbroker
-    ports:
-      - 10909:10909
-      - 10911:10911
+    # ports:
+    #   - 10909:10909
+    #   - 10911:10911
     volumes:
       - ~/.data/rocketmq/mqbroker/logs:/opt/logs
       - ~/.data/rocketmq/mqbroker/store:/opt/store
