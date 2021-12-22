@@ -59,8 +59,6 @@ services:
       - 9000:9000
     environment:
       ZK_HOSTS: "zookeeper:2181"
-    env_file:
-      - ~/.data/kafka/.env
     networks:
       - net_bridge
     depends_on:
