@@ -24,3 +24,8 @@ Created /kafka-manager/mutex/leases
 /opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:consumer --operation Read --topic test
 
 /opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:consumer --operation Read --group test-group
+
+###问题三
+挂载的数据冲突（The Cluster ID XXX doesn‘t match stored clusterId Some(XXX) in meta.properties.）
+解决方法：
+删除meta.properties文件后重启
