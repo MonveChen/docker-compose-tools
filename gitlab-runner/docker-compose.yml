@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner
+    container_name: gitlab-runner
+    privileged: true
+    restart: always
+    env_file:
+      - ~/.data/gitlab-runner/.env
+    volumes:
+      - ~/.data/gitlab-runner/data:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /bin/docker:/bin/docker
+      - ~/.data/gitlab-runner/ssh:/home/gitlab-runner/.ssh

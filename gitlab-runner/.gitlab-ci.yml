@@ -1,0 +1,42 @@
+stages:
+  - build_image
+  - push_image
+  - deploy
+ 
+before_script:
+  - echo $CI_PROJECT_NAME
+  - echo $CI_COMMIT_TAG
+  - echo $SSH_USER
+  - echo $SSH_IP
+  - VERSION=${CI_COMMIT_TAG//release-v/}
+  - echo $VERSION
+  - REGISTRY_CLIENT_IMAGE=${DOCKER_REGISTRY}/${DOCKER_NAME_SPACE}/${CI_PROJECT_NAME}:${VERSION}
+  - echo $REGISTRY_CLIENT_IMAGE
+  - pwd
+ 
+build_image:
+  stage: build_image
+  script:
+    - docker build --pull -t $REGISTRY_CLIENT_IMAGE .
+  only:
+    - /release-v.*/
+ 
+push_image:
+  stage: push_image
+  script:
+    - docker login -u $DOCKER_REGISTRY_USER -p $DOCKER_REGISTRY_PASSWORD  $DOCKER_REGISTRY
+    - docker push $REGISTRY_CLIENT_IMAGE
+    - docker rmi $REGISTRY_CLIENT_IMAGE
+  only:
+    - /release-v.*/
+
+deploy_image:
+  stage: deploy
+  script:
+    - DEPLOY_NAME="${CI_PROJECT_NAME}-deploy.sh"
+    - if [ ! -f "/etc/gitlab-runner/${DEPLOY_NAME}" ]; then DEPLOY_NAME="deploy.sh"; fi;
+    - DEPLOY_PATH="/etc/gitlab-runner/${DEPLOY_NAME}"
+    - if [ -f "./deploy.sh" ]; then DEPLOY_PATH="./deploy.sh"; fi;
+    - sh $DEPLOY_PATH
+  only:
+    - /release-v.*/
