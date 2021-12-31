@@ -20,10 +20,10 @@ Created /kafka-manager/mutex/leases
 1.生产
 /opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:producer --operation Write --topic test
 
-2.消费
-/opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:consumer --operation Read --topic test
+/opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:producer --operation Read --topic test --group test-group
 
-/opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:consumer --operation Read --group test-group
+2.消费
+/opt/kafka/bin/kafka-acls.sh --authorizer-properties zookeeper.connect=zookeeper:2181 --add --allow-principal User:consumer --operation Read --topic test --group test-group
 
 ###问题三
 挂载的数据冲突（The Cluster ID XXX doesn‘t match stored clusterId Some(XXX) in meta.properties.）
