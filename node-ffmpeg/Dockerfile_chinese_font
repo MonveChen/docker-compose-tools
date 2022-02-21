@@ -1,0 +1,8 @@
+FROM monve/node-ffmpeg:latest
+
+LABEL maintainer="164598724@qq.com"
+
+//download chinese .ttf file yourself
+COPY ./chinese.ttf /usr/share/fonts/chinese.ttf
+
+RUN fc-cache -f -v
