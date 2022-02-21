@@ -20,6 +20,9 @@ services:
       - ~/.data/kafka/secrets:/etc/kafka/secrets
     networks:
       - net_bridge
+    logging: 
+      options:
+        max-size: "100M"
 
   kafka:
     image: wurstmeister/kafka
@@ -51,6 +54,9 @@ services:
     volumes:
       - ~/.data/kafka/secrets:/etc/kafka/secrets
       - ~/.data/kafka/data:/data/kafka-data
+    logging: 
+      options:
+        max-size: "100M"
 
   kafka_manager:
     image: hlebalbau/kafka-manager:stable
@@ -64,3 +70,6 @@ services:
     depends_on:
       - zookeeper
       - kafka
+    logging: 
+      options:
+        max-size: "100M"
