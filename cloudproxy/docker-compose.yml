@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  cloudproxy:
+    image: laffin/cloudproxy
+    container_name: cloudproxy
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - ~/.data/cloudproxy/.env
+    logging:
+      options:
+        max-size: "100M"
