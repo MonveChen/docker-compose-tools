@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+
+  openvpn-server:
+    image: kylemanna/openvpn:2.4
+    container_name: openvpn-server
+    volumes:
+      - ~/.data/openvpn-server/data:/etc/openvpn
+    ports:
+      - 1194:1194/udp
+    cap_add:
+      - NET_ADMIN
+    network_mode: "host"
+    logging: 
+      options:
+        max-size: "100M"
